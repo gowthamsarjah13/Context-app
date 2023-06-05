@@ -16,7 +16,7 @@ function App() {
   const userData = [
     {
       id: 101,
-      name: "Dravid",
+      name: "Dhoni",
       email: "dravid@gmail.com",
       Gender: "Male",
       phone: "86******31",
@@ -24,7 +24,7 @@ function App() {
     },
     {
       id: 102,
-      name: "Sachin",
+      name: "virat",
       email: "sachin@gmail.com",
       Gender: "Male",
       phone: "86******31",
@@ -32,7 +32,7 @@ function App() {
     },
     {
       id: 103,
-      name: "Sehwag",
+      name: "rohit sharma",
       email: "sehwag@gmail.com",
       Gender: "Male",
       phone: "86******31",
@@ -40,7 +40,7 @@ function App() {
     },
     {
       id: 104,
-      name: "Gambhir",
+      name: "Jadeja",
       email: "gambhir@gmail.com",
       Gender: "Male",
       phone: "86******31",
@@ -48,7 +48,7 @@ function App() {
     },
     {
       id: 105,
-      name: "Zaheer",
+      name: "hardick",
       email: "Zaheer@gmail.com",
       Gender: "Male",
       phone: "86******31",
@@ -56,7 +56,7 @@ function App() {
     },
     {
       id: 106,
-      name: "Yuvaraj",
+      name: "ashwin",
       email: "yuvaraj@gmail.com",
       Gender: "Male",
       phone: "86******31",
