@@ -1,52 +1,49 @@
-import React, { useContext, useId, useState } from "react";
+import React, {  useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min';
-import { AppState } from "../App";
+import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
+import { AppContext, AppState } from "../App";
 
 
-function AddTeacherDetails({userDetail,children}) {
 
 
-const {lecturer,setLecturer} = AppState();
+function Editteacher() {
+  
+  const {person,SetPerson} = AppState();
 
- const [name,setName]= useState("");
- const [subject,setSubject]= useState("");
- const [uid,setUid]= useState();
- const [email,setEmail]= useState("");
- const [gender,setGender]= useState("");
- const [phone,setPhone]= useState();
- const [qualification,setQualification]= useState("");
+  const {id} = useParams();
+  const edituserinfo = person[id]
+
+const [name,setName]= useState(edituserinfo.name);
+ const [uid,setUid]= useState(edituserinfo.id);
+ const [email,setEmail]= useState(edituserinfo.email);
+ const [gender,setGender]= useState(edituserinfo.Gender);
+ const [phone,setPhone]= useState(edituserinfo.phone);
+ const [qualification,setQualification]= useState(edituserinfo.qualification);
 
  const history = useHistory();
-
  
+
  const addNew = () =>{
     const newUser = {
         name,
-        subject,
         uid,
         email,
         gender,
         phone,
         qualification
     }
-    console.log(newUser);
-    setLecturer([...lecturer,newUser]);
-    history.push("/teacher")
+    // console.log(newUser);
+    SetPerson([...person,newUser]);
+    history.push("/")
  }
 
-  return (
-    <Form>
+    return(
+        <Form>
+       
        <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Name</Form.Label>
         <Form.Control type="text" value={name} onChange={(e)=> setName(e.target.value)} placeholder="Enter name" />
-        
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>subject</Form.Label>
-        <Form.Control type="text" value={subject} onChange={(e)=> setSubject(e.target.value)} placeholder="Enter subject" />
         
       </Form.Group>
 
@@ -81,13 +78,14 @@ const {lecturer,setLecturer} = AppState();
 
       <Button onClick={(e)=>{
             e.preventDefault();
-            {addNew()}
-      }} variant="primary" type="submit">
+            addNew();
+      }}
+       variant="primary" type="submit">
         Submit
       </Button>
 
     </Form>
-  );
+    )
 }
 
-export default AddTeacherDetails;
+export default Editteacher;

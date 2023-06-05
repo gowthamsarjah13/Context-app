@@ -8,6 +8,7 @@ import React, { createContext, useContext, useState } from "react";
 import EditUser from "./components/editUser";
 import Teacher from "./components/teachers";
 import AddTeacherDetails from "./components/AddTeacher";
+import Editteacher from "./components/editteacher";
 
 export const AppContext = createContext();
 
@@ -146,7 +147,7 @@ function App() {
             <Mainpage userDetail="Add User" children={<AddUserDetails />} />
           </Route>
 
-          <Route path="/edit/user">
+          <Route path="/edit/user/:id">
             <Mainpage userDetail="Edit User" children={<EditUser />} />
           </Route>
 
@@ -154,8 +155,12 @@ function App() {
             <Mainpage userDetail="Teacher Details" children={<Teacher/>} />
           </Route>
 
-          <Route path="/add/teacher">
+          <Route path="/adds/teacher">
             <Mainpage userDetail="Add Teacher" children={<AddTeacherDetails/>}/>
+          </Route>
+
+          <Route path="/edits/teacher/:id">
+            <Mainpage userDetail="Add Teacher" children={<Editteacher/>}/>
           </Route>
 
           <Route path="**">

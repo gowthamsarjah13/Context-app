@@ -1,7 +1,7 @@
 import React, {  useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
+import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { AppContext, AppState } from "../App";
 
 
@@ -11,13 +11,15 @@ function EditUser() {
   
   const {person,SetPerson} = AppState();
 
+  const {id} = useParams();
+  const edituserinfo = person[id]
 
-const [name,setName]= useState("");
- const [id,setId]= useState();
- const [email,setEmail]= useState("");
- const [gender,setGender]= useState("");
- const [phone,setPhone]= useState();
- const [qualification,setQualification]= useState("");
+const [name,setName]= useState(edituserinfo.name);
+ const [uid,setUid]= useState(edituserinfo.id);
+ const [email,setEmail]= useState(edituserinfo.email);
+ const [gender,setGender]= useState(edituserinfo.Gender);
+ const [phone,setPhone]= useState(edituserinfo.phone);
+ const [qualification,setQualification]= useState(edituserinfo.qualification);
 
  const history = useHistory();
  
@@ -25,7 +27,7 @@ const [name,setName]= useState("");
  const addNew = () =>{
     const newUser = {
         name,
-        id,
+        uid,
         email,
         gender,
         phone,
@@ -47,7 +49,7 @@ const [name,setName]= useState("");
 
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Id</Form.Label>
-        <Form.Control type="number" value={id} onChange={(e)=> setId(e.target.value)} placeholder="Enter id" />
+        <Form.Control type="number" value={uid} onChange={(e)=> setUid(e.target.value)} placeholder="Enter id" />
         
       </Form.Group> 
 

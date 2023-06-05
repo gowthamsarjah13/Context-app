@@ -33,7 +33,7 @@ function Mainpage({ userDetail, children }) {
             </Button>
 
             <Button
-              onClick={() => history.push("/add/teacher")}
+              onClick={() => history.push("/adds/teacher")}
               className="naviteach"
               variant="dark"
             >
